@@ -64,15 +64,6 @@ app.get("/", (req, res) => {
   res.send(continents);
 });
 
-app.get("/:id", (req, res) => {
-  const continent = continents.filter(
-    continent => continent.id === parseInt(req.params.id)
-  );
-  if (continent.length === 0) return res.status(404).send();
-  if (continent.length > 1) return res.status(500).send();
-  res.send(continent[0]);
-});
-
 app.listen(8081, () => {
   console.log("App's running on port 8081");
 });
